@@ -1,0 +1,156 @@
+html
+{
+    font-size: 62.5%;
+}
+*
+{
+    margin: 0;
+    padding: 0;
+}
+body
+{
+    background-color: white;
+    font-family: "Poppins", sans-serif;
+}
+.main
+{
+    width: 100%;
+    display: flex;
+}
+.sidenav
+{
+    padding-top: 3rem;
+    height: 100vh;
+    width: 15%;
+    background-color: #e45050;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+}
+.sidenav ul
+{
+    font-size: 1.8rem;
+    list-style-type: none;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    width: 100%;
+}
+.sidenav ul li
+{
+    height: 5.5rem;
+    text-align: justify;
+    width: 100%;
+    display: flex;
+    align-items: center;
+}
+.sidenav ul li:hover
+{
+    cursor: pointer;
+    background-color: #c5c4c6;
+}
+.sidenav ul li:visited
+{
+    cursor: pointer;
+    background-color: #6d36a3;
+}
+.sidenav ul li a
+{
+    text-decoration: none;
+    color: rgb(255, 255, 255);
+    font-family: sans-serif;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    padding-left: 1rem;
+    width: 100%;
+}
+.mainview{
+    width: 85%;
+    margin-top: 3rem;
+    display: flex;
+    justify-content: center;
+}
+.productform
+{
+    width: 60%;
+    height: auto;
+    background-color: #F0EEED;
+    border-radius: 10px;
+    
+}.title
+{
+    display: flex;
+    justify-content: center;
+    font-size: 2.5rem;
+    height: 40px;
+    margin-top: 2rem;
+}
+.mainform
+{
+    height: auto;
+    display: flex;
+    padding: 2rem;
+    
+}
+.labels
+{
+    width: 40%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    font-size: 1.6rem;
+    gap: 3rem;
+    margin-top: 3rem;
+
+}
+.fields
+{
+    width: 60%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    font-size: 1.6rem;
+    gap: 3rem;
+    margin-top: 3rem;
+}
+.fieldsdesign
+{
+    border-radius: 5px;
+    height: 2.2rem;
+    padding-left: 0.5rem;
+}
+#image
+{
+    font-size: 1.6rem;
+}
+.submitbutton
+{
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 5rem;
+    padding: 0 4rem;
+}
+.submitbutton button
+{
+    font-size: 2rem;
+    padding: 0.5rem 1rem;
+    border-radius: 10px;
+    transition: 0.5s ease;
+
+}
+.submitbutton button:hover
+{
+    background-color: rgb(51, 212, 126);
+    cursor: pointer;
+
+}
+@media (max-width: 600px) {
+    .productform
+    {
+        width: 90%;
+    }
+}
