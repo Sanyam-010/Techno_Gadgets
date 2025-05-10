@@ -25,12 +25,12 @@ public class LoginController extends HttpServlet {
     private final ValidationUtil validationUtil = new ValidationUtil();
     private final RedirectionUtil redirectionUtil = new RedirectionUtil();
 
-//    private final String rootURL = "WEB-INF/pages";
+    private final String rootURL = "WEB-INF/pages/";
 //    private final String loginURL = rootURL + "/login";
 //    private final String homeURL = rootURL + "/home";
 
     public LoginController() {
-        super(); 
+//    	this.loginService = new LoginService()
     }
 
     @Override
@@ -43,7 +43,7 @@ public class LoginController extends HttpServlet {
     protected void doPost(HttpServletRequest req, HttpServletResponse resp)
             throws ServletException, IOException {
         String email = req.getParameter("email");
-        String password = req.getParameter("pass");
+        String password = req.getParameter("password");
 
         if (validationUtil.isNullOrEmpty(email) || validationUtil.isNullOrEmpty(password)) {
             redirectionUtil.setMsgAndRedirect(req, resp, "error", "Please fill all the fields!", "/login");
@@ -59,5 +59,6 @@ public class LoginController extends HttpServlet {
                 redirectionUtil.setMsgAndRedirect(req, resp, "error", "Either username or password is incorrect!", "/login");
             }
         }
+        
     }
 }

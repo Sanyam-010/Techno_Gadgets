@@ -1,115 +1,131 @@
 package com.TechnoGadgets.model;
 
 
+/**
+ * CustomerModel represents customer attributes.
+ */
 public class CustomerModel {
-	private int customer_id;
+	private int id;
 	private String firstName;
-	private String lastName;
-	private String email;
-	private int phone;
+	private String lastname;
+	private String username;
 	private String dob;
+	private String gender;
+	private String email;
+	private String phone;
 	private String password;
-	private String confirmpassword;
-	private String imageUrl;
-	private String Address;
-	private String Gender;
-	
+	private String profilepicture;
+
 	public CustomerModel() {
-		
 	}
-	public CustomerModel(String email, String password) {
+
+	public CustomerModel(String username, String pasword) {
+		this.username = username;
+		this.password = pasword;
+	}
+
+	public CustomerModel(int id, String firstName, String lastname, String username, String dob, String gender,
+			String email, String phone, String role, String password, String profilepicture) {
+		super();
+		this.id = id;
+		this.firstName = firstName;
+		this.lastname = lastname;
+		this.username = username;
+		this.dob = dob;
+		this.gender = gender;
 		this.email = email;
-		this.password= password;
+		this.phone = phone;
+		this.password = password;
+		this.profilepicture = profilepicture;
 	}
-	public CustomerModel(int id,String firstName,String lastName,
-			String Gender,String email, int phone, String dob, String password, 
-			String confirmpassword, String imageUrl, String Address,String image_path) {
-			super ();
-			this.customer_id=id;
-			this.firstName=firstName;
-			this.lastName=lastName;
-			this.phone=phone;
-			this.dob=dob;
-			this.password=password;
-			this.confirmpassword = confirmpassword;
-			this.Address=Address;
-			this.Gender=Gender;
-			
-		}
-	
-	public CustomerModel(int id, String firstName, String lastName
-			,String email, int phone) {
-		this.customer_id= id;
-		this.firstName= firstName;
-		this.lastName= lastName;
-		this.email=email;
-		this.phone=phone;
-		
+
+	public CustomerModel(int id, String firstName, String lastName, String email, String phone) {
+		super();
+		this.id = id;
+		this.firstName = firstName;
+		this.lastname = lastName;
+		this.email = email;
+		this.phone = phone;
 	}
-	public int getCustomer_id() {
-		return customer_id;
+
+	public int getId() {
+		return id;
 	}
-	public void setCustomer_id(int customer_id) {
-		this.customer_id = customer_id;
+
+	public void setId(int id) {
+		this.id = id;
 	}
+
 	public String getFirstName() {
 		return firstName;
 	}
+
 	public void setFirstName(String firstName) {
 		this.firstName = firstName;
 	}
-	public String getLastName() {
-		return lastName;
+
+	public String getLastname() {
+		return lastname;
 	}
-	public void setLastName(String lastName) {
-		this.lastName = lastName;
+
+	public void setLastname(String lastname) {
+		this.lastname = lastname;
 	}
-	public String getEmail() {
-		return email;
+
+	public String getUsername() {
+		return username;
 	}
-	public void setEmail(String email) {
-		this.email = email;
+
+	public void setUsername(String username) {
+		this.username = username;
 	}
-	public int getPhone() {
-		return phone;
-	}
-	public void setPhone(int phone) {
-		this.phone = phone;
-	}
+
 	public String getDob() {
 		return dob;
 	}
+
 	public void setDob(String dob) {
 		this.dob = dob;
 	}
+
+	public String getGender() {
+		return gender;
+	}
+
+	public void setGender(String gender) {
+		this.gender = gender;
+	}
+
+	public String getEmail() {
+		return email;
+	}
+
+	public void setEmail(String email) {
+		this.email = email;
+	}
+
+	public String getPhone() {
+		return phone;
+	}
+
+	public void setPhone(String phone) {
+		this.phone = phone;
+	}
+
 	public String getPassword() {
 		return password;
 	}
+
 	public void setPassword(String password) {
 		this.password = password;
 	}
-	public String getConfirmpassword() {
-		return confirmpassword;
+
+	public String getProfilepicture() {
+		return profilepicture;
 	}
-	public void setConfirmpassword(String confirmpassword) {
-		this.confirmpassword = confirmpassword;
+
+	public void setProfilepicture(String profilepicture) {
+		this.profilepicture = profilepicture;
 	}
-	public String getImageUrl() {
-		return imageUrl;
-	}
-	public void setImageUrl(String imageUrl) {
-		this.imageUrl = imageUrl;
-	}
-	public String getAddress() {
-		return Address;
-	}
-	public String getGender() {
-		return Gender;
-	}
-	public void setGender(String Gender) {
-		this.Gender=Gender;
-	}
-	public void setAddress(String address) {
-		Address = address;
-	}
+
 }
