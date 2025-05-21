@@ -17,7 +17,7 @@
 <body>
 	<div class="main">
 		<div class="logo">
-			<img src="pictures/Techno__1_-removebg-preview.png" alt="main image">
+			<img src="pictures/Techno__1_-removebg-preview.png" alt="main image"> #logo
 		</div>
 		<div class="heading">The most trusted gadget E-commerce site in
 			Nepal</div>
