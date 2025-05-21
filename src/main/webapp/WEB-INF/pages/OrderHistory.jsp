@@ -7,7 +7,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Order History</title>
   <link rel="stylesheet" href="${pageContext.request.contextPath}/css/order.css" />
-  
 </head>
 <body>
   <h1 class="title">Order History</h1>

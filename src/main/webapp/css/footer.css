@@ -1,0 +1,48 @@
+footer {
+  width: 100%;
+  height: auto;
+  display: flex;
+  justify-content: space-around;
+  background-color: black;
+  padding: 2rem 1rem;
+}
+
+#secondmenu ul {
+  display: flex;
+  justify-content: space-around;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+#secondmenu ul li a {
+  color: white;
+  text-decoration: none;
+  font-size: 1.6rem;
+  transition: 0.3s ease;
+}
+
+#secondmenu ul li a:hover {
+  color: #00ffcc;
+}
+
+.icons {
+  display: flex;
+  justify-content: center;
+  gap: 1.5rem;
+}
+
+.icons a img {
+  height: 30px;
+}
+
+.socials {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.socials p {
+  color: white;
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}

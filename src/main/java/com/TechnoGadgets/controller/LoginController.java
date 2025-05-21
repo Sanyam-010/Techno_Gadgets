@@ -1,37 +1,23 @@
 package com.TechnoGadgets.controller;
 
-import java.io.IOException;
-
+import com.TechnoGadgets.model.CustomerModel;
+import com.TechnoGadgets.service.LoginService;
 import com.TechnoGadgets.util.RedirectionUtil;
 import com.TechnoGadgets.util.ValidationUtil;
 
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
-import jakarta.servlet.http.HttpServlet;
-import jakarta.servlet.http.HttpServletRequest;
-import jakarta.servlet.http.HttpServletResponse;
+import jakarta.servlet.http.*;
 
-/**
- * @author samyam VIper
- * 
- * Faster snake like viper 
- * 
- * as if viper viper
- */
-@WebServlet(asyncSupported = true, urlPatterns = { "/login" })
+import java.io.IOException;
+
+@WebServlet(urlPatterns = { "/login" })
 public class LoginController extends HttpServlet {
     private static final long serialVersionUID = 1L;
 
     private final ValidationUtil validationUtil = new ValidationUtil();
     private final RedirectionUtil redirectionUtil = new RedirectionUtil();
-
-    private final String rootURL = "WEB-INF/pages/";
-//    private final String loginURL = rootURL + "/login";
-//    private final String homeURL = rootURL + "/home";
-
-    public LoginController() {
-//    	this.loginService = new LoginService()
-    }
+    private final LoginService loginService = new LoginService();
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp)
@@ -42,23 +28,35 @@ public class LoginController extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp)
             throws ServletException, IOException {
-        String email = req.getParameter("email");
+
+        String username = req.getParameter("username");
         String password = req.getParameter("password");
 
-        if (validationUtil.isNullOrEmpty(email) || validationUtil.isNullOrEmpty(password)) {
-            redirectionUtil.setMsgAndRedirect(req, resp, "error", "Please fill all the fields!", "/login");
-        } 
-        else {
-            if ("admin".equals(email) && "admin".equals(password)) {
-                redirectionUtil.setMsgAndRedirect(req, resp, "success", "Successfully Logged In!", "/home");
-            } 
-            else if("Customer".equals(email)&& "Customer".equals(password)) {
-            	redirectionUtil.setMsgAndRedirect(req, resp, "success", "Successfully Logged In!", "/home");
-            }
-            	else {
-                redirectionUtil.setMsgAndRedirect(req, resp, "error", "Either username or password is incorrect!", "/login");
-            }
+        if (validationUtil.isNullOrEmpty(username) || validationUtil.isNullOrEmpty(password)) {
+            redirectionUtil.setMsgAndRedirect(req, resp, "error",
+                    "Please fill all the fields!", "/WEB-INF/pages/login.jsp");
+            return;
         }
-        
+
+        CustomerModel user = loginService.validateUser(username, password);
+
+        if (user == null) {
+            redirectionUtil.setMsgAndRedirect(req, resp, "error",
+                    "Invalid username or password!", "/WEB-INF/pages/login.jsp");
+            return;
+        }
+
+        // Store user info in session
+        HttpSession session = req.getSession();
+        session.setAttribute("username", user.getUsername());
+        session.setAttribute("firstname", user.getFirst_name());
+        session.setAttribute("role", user.getRole());
+
+        //Redirect based on role
+        if ("admin".equalsIgnoreCase(user.getRole())) {
+            req.getRequestDispatcher("/WEB-INF/pages/dashboard.jsp").forward(req, resp);
+        } else {
+            req.getRequestDispatcher("/WEB-INF/pages/home.jsp").forward(req, resp);
+        }
     }
 }

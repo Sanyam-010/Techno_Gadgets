@@ -31,9 +31,6 @@ public class HomeController extends HttpServlet {
 		// TODO Auto-generated method stub
 		response.getWriter().append("Served at: ").append(request.getContextPath());
 		request.getRequestDispatcher("/WEB-INF/pages/home.jsp").forward(request, response);
-		//redirection ko code halnu hunxa arko page ma jana
-		//home ra product bata ni
-		
 	}
 
 	/**

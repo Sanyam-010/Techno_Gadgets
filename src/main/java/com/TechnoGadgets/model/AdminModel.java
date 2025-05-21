@@ -8,9 +8,15 @@ public class AdminModel {
 	private String AdminLastName;
 	private int PhoneNumber;
 	private String Password;
+	private String username;
 	private String Gender;
 	private LocalDate DateOfBirth;
 	private String Email;
+	
+	public AdminModel(String username, String password) {
+		this.username = username;
+		this.Password = password;
+	}
 
 	public AdminModel(int adminId, String adminFirstName, String adminLastName, int phoneNumber, String password,
 			String gender, LocalDate dateOfBirth, String email) {
@@ -98,5 +104,12 @@ public class AdminModel {
 
 	public void setEmail(String email) {
 		Email = email;
+	}
+	public String getUsername() {
+		return username;
+	}
+
+	public void setUsername(String username) {
+		this.username = username;
 	}
 }

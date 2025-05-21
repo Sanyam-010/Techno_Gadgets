@@ -1,131 +1,92 @@
 package com.TechnoGadgets.model;
 
+import java.time.LocalDate;
 
-/**
- * CustomerModel represents customer attributes.
- */
 public class CustomerModel {
-	private int id;
-	private String firstName;
-	private String lastname;
-	private String username;
-	private String dob;
-	private String gender;
-	private String email;
-	private String phone;
-	private String password;
-	private String profilepicture;
-
-	public CustomerModel() {
-	}
-
-	public CustomerModel(String username, String pasword) {
-		this.username = username;
-		this.password = pasword;
-	}
-
-	public CustomerModel(int id, String firstName, String lastname, String username, String dob, String gender,
-			String email, String phone, String role, String password, String profilepicture) {
+    private String first_name;
+	private String last_name;
+    private String username;
+    private int phone_number;
+    private String gender;
+    private String email;
+    private String password;
+    private LocalDate dob;
+    private String image_path;
+    private String role;
+    public CustomerModel(String first_name, String last_name, String username, int phone_number, String gender,
+			String email, String password, LocalDate dob, String image_path, String role) {
 		super();
-		this.id = id;
-		this.firstName = firstName;
-		this.lastname = lastname;
+		this.first_name = first_name;
+		this.last_name = last_name;
 		this.username = username;
-		this.dob = dob;
+		this.phone_number = phone_number;
 		this.gender = gender;
 		this.email = email;
-		this.phone = phone;
 		this.password = password;
-		this.profilepicture = profilepicture;
+		this.dob = dob;
+		this.image_path = image_path;
+		this.role = role;
 	}
-
-	public CustomerModel(int id, String firstName, String lastName, String email, String phone) {
-		super();
-		this.id = id;
-		this.firstName = firstName;
-		this.lastname = lastName;
-		this.email = email;
-		this.phone = phone;
+	public String getFirst_name() {
+		return first_name;
 	}
-
-	public int getId() {
-		return id;
+	public void setFirst_name(String first_name) {
+		this.first_name = first_name;
 	}
-
-	public void setId(int id) {
-		this.id = id;
+	public String getLast_name() {
+		return last_name;
 	}
-
-	public String getFirstName() {
-		return firstName;
+	public void setLast_name(String last_name) {
+		this.last_name = last_name;
 	}
-
-	public void setFirstName(String firstName) {
-		this.firstName = firstName;
-	}
-
-	public String getLastname() {
-		return lastname;
-	}
-
-	public void setLastname(String lastname) {
-		this.lastname = lastname;
-	}
-
 	public String getUsername() {
 		return username;
 	}
-
 	public void setUsername(String username) {
 		this.username = username;
 	}
-
-	public String getDob() {
-		return dob;
+	public int getPhone_number() {
+		return phone_number;
 	}
-
-	public void setDob(String dob) {
-		this.dob = dob;
+	public void setPhone_number(int phone_number) {
+		this.phone_number = phone_number;
 	}
-
 	public String getGender() {
 		return gender;
 	}
-
 	public void setGender(String gender) {
 		this.gender = gender;
 	}
-
 	public String getEmail() {
 		return email;
 	}
-
 	public void setEmail(String email) {
 		this.email = email;
 	}
-
-	public String getPhone() {
-		return phone;
-	}
-
-	public void setPhone(String phone) {
-		this.phone = phone;
-	}
-
 	public String getPassword() {
 		return password;
 	}
-
 	public void setPassword(String password) {
 		this.password = password;
 	}
-
-	public String getProfilepicture() {
-		return profilepicture;
+	public LocalDate getDob() {
+		return dob;
 	}
-
-	public void setProfilepicture(String profilepicture) {
-		this.profilepicture = profilepicture;
+	public void setDob(LocalDate dob) {
+		this.dob = dob;
 	}
-
+	public String getImage_path() {
+		return image_path;
+	}
+	public void setImage_path(String image_path) {
+		this.image_path = image_path;
+	}
+	public String getRole() {
+		return role;
+	}
+	public void setRole(String role) {
+		this.role = role;
+	}
+    
+    
 }
