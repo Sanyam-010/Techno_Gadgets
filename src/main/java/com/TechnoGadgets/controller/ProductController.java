@@ -1,43 +1,31 @@
 package com.TechnoGadgets.controller;
 
+import com.TechnoGadgets.model.ProductModel;
+import com.TechnoGadgets.service.ProductService;
+
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
-import jakarta.servlet.http.HttpServlet;
-import jakarta.servlet.http.HttpServletRequest;
-import jakarta.servlet.http.HttpServletResponse;
+import jakarta.servlet.http.*;
 import java.io.IOException;
+import java.util.List;
 
-/**
- * Servlet implementation class ProductController
- */
 @WebServlet("/ProductController")
-public class ProductController extends HttpServlet
-{
-	private static final long serialVersionUID = 1L;
-       
-    /**
-     * @see HttpServlet#HttpServlet()
-     */
-    public ProductController() {
-        super();
-        // TODO Auto-generated constructor stub
+public class ProductController extends HttpServlet {
+    private static final long serialVersionUID = 1L;
+
+    private final ProductService productService = new ProductService();
+
+    protected void doGet(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
+
+        List<ProductModel> products = productService.getAllProducts();
+
+        request.setAttribute("products", products); //Request to add product
+        request.getRequestDispatcher("/WEB-INF/pages/Product.jsp").forward(request, response);
     }
 
-	/**
-	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
-	 */
-    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		response.getWriter().append("Served at: ").append(request.getContextPath());
-		request.getRequestDispatcher("/WEB-INF/pages/Product.jsp").forward(request, response);	
-		}
-
-	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
-	 */
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		doGet(request, response);
-	}
-
+    protected void doPost(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
+        doGet(request, response);
+    }
 }

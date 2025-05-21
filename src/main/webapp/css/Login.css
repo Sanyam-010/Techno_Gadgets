@@ -1,0 +1,98 @@
+/* General body layout */
+body {
+  margin: 0;
+  font-family: 'Poppins', sans-serif;
+  background-color: #0d0d0d;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+}
+
+/* Main login wrapper */
+.loginmain {
+  width: 100%;
+  max-width: 420px;
+  padding: 20px;
+}
+
+/* Card-style section */
+.loginsection {
+  background-color: #1e1e1e;
+  border-radius: 12px;
+  padding: 30px;
+  box-shadow: 0 0 12px rgba(0, 0, 0, 0.6);
+}
+
+/* Login title */
+.logintitle {
+  text-align: center;
+  font-size: 1.8rem;
+  font-weight: 600;
+  color: #ffffff;
+  margin-bottom: 25px;
+}
+
+/* Input groups */
+.email {
+  color: #ccc;
+  font-size: 0.95rem;
+  margin-bottom: 15px;
+  display: flex;
+  flex-direction: column;
+}
+
+.email input {
+  margin-top: 6px;
+  padding: 12px;
+  border-radius: 8px;
+  border: none;
+  background-color: #2c2c2c;
+  color: #fff;
+  font-size: 1rem;
+}
+
+.email input:focus {
+  outline: 2px solid #7a5df5;
+  background-color: #333;
+}
+
+/* Login button */
+.loginbutton button {
+  width: 100%;
+  padding: 12px;
+  font-size: 1rem;
+  font-weight: bold;
+  background-color: #7a5df5;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  margin-top: 10px;
+  transition: background-color 0.3s ease;
+}
+
+.loginbutton button:hover {
+  background-color: #6c50e0;
+}
+
+/* Extra text */
+.forgotpassword,
+#regis {
+  text-align: center;
+  margin-top: 15px;
+  color: #aaaaaa;
+  font-size: 0.9rem;
+}
+
+#regis a {
+  color: #7a5df5;
+  text-decoration: none;
+  margin-left: 5px;
+}
+
+.error-msg {
+  text-align: center;
+  margin-top: 10px;
+  font-size: 0.95rem;
+}

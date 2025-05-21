@@ -1,100 +1,115 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-<%@ page session="true" %>
-<%
-    String name = (String) session.getAttribute("firstname"); //storing first name inside session
-    if (name == null) {
-        response.sendRedirect("login"); //checking vaidation in name 
-        return;
-    }
-%>
 <!DOCTYPE html>
 <html lang="en">
+<%
+String name = (String) session.getAttribute("firstname");
+if (name == null) {
+	response.sendRedirect("login"); //checking vaidation in name 
+	return;
+}
+%>
 <head>
-  <meta charset="UTF-8">
-  <title>Techno Gadgets Nepal</title>
-  <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/home.css" />
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com">
-  <link href="https://fonts.googleapis.com/css2?family=Libre+Bodoni:ital,wght@0,400..700;1,400..700&family=Poppins:wght@100;400;600;900&display=swap" rel="stylesheet">
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Techno Gadgets</title>
+<link rel="stylesheet"
+	href="${pageContext.request.contextPath}/css/Home.css" />
+<link
+	href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap"
+	rel="stylesheet">
 </head>
 <body>
-  <div class="main">
-    <nav>
-      <div class="logoimg">
-        <img src="Techno__1_-removebg-preview.png" alt="Logo">
-      </div>
-      <div class="menu">
-        <ul>
-          <li><a href="${pageContext.request.contextPath}/home">Home</a></li>
-          <li><a href="${pageContext.request.contextPath}/about">About us</a></li>
-          <li><a href="${pageContext.request.contextPath}/ProductController">Products</a></li>
-          <li><a href="${pageContext.request.contextPath}/contact">Contact us</a></li>
-          <li><a href="${pageContext.request.contextPath}/login">Join us</a></li>
-        </ul>
-      </div>
-      <div class="menubutton">
-        <a href="${pageContext.request.contextPath}/login"><button id="button2">Login</button></a>
-        <a href="${pageContext.request.contextPath}/register"><button id="button1">Register</button></a> 
-      </div>
-    </nav>
-    <div style="text-align: center; margin-top: 20px;">
-      <h2>Welcome, <%= name %>!</h2>
-    </div>
+	<jsp:include page="Header.jsp" />
+	<section class="hero">
+		<div class="container hero-wrap">
+			<div class="hero-text">
+				<h1>Discover the Best Tech Gadgets</h1>
+				<p>Shop the latest electronics and devices with cutting-edge
+					features.</p>
+				<div class="btn-group">
+					<a href="#" class="btn primary">Shop Now</a> <a href="#"
+						class="btn">Learn More</a>
+				</div>
+			</div>
+			<div style="text-align: center; margin-top: 20px;">
+				<h2>
+					Welcome,
+					<%=name%>!
+				</h2>
+			</div>
+			<div class="hero-image">
+				<img src="dd.webp" alt="Hero Gadget">
+			</div>
+		</div>
+	</section>
 
-    <div class="maindiv">
-      <div class="firstcontent">
-        <p class="maintag">Techno Gadgets Nepal</p>
-        <p class="subtag">We serve the most amazing gadgets all over the world.</p>
-        <p class="subtag">Join us in Nepal's best gadget store.</p>
-        <div class="mainbutton">
-          <button class="mainbutton1">Buy now</button>
-          <button class="mainbutton2">Learn more</button>
-        </div>
-      </div>
-      <div class="secondcontent">
-        <img src="pictures/pngtree-office-essentials-technology-and-gadgets-illustration-featuring-laptop-printer-camera-tablet-image_3748458-removebg-preview.png" alt="second image">
-      </div>
-    </div>
+	<section class="section dark">
+		<div class="container">
+			<h2 class="section-title">Popular Products</h2>
+			<div class="grid">
+				<div class="card">
+					<img src="dd.webp" alt="Smartphone">
+					<h3>Smartphone X</h3>
+					<p>Advanced camera, AMOLED display, and ultra-fast processor.</p>
+				</div>
+				<div class="card">
+					<img src="dd.webp" alt="Smartwatch">
+					<h3>Smartwatch Z</h3>
+					<p>Track fitness, messages, and sleep — all from your wrist.</p>
+				</div>
+				<div class="card">
+					<img src="dd.webp" alt="Earbuds">
+					<h3>SoundPods</h3>
+					<p>Noise-canceling wireless earbuds with premium audio.</p>
+				</div>
+				<div class="card">
+					<img src="dd.webp" alt="Laptop">
+					<h3>Laptop Pro</h3>
+					<p>Thin, powerful, and ready for productivity and gaming.</p>
+				</div>
+				<div class="card">
+					<img src="dd.webp" alt="Camera">
+					<h3>4K Camera</h3>
+					<p>Capture ultra-HD photos and videos with pro features.</p>
+				</div>
+				<div class="card">
+					<img src="dd.webp" alt="Speaker">
+					<h3>Portable Speaker</h3>
+					<p>Loud, clear, and built for travel and outdoor vibes.</p>
+				</div>
+			</div>
+		</div>
+	</section>
 
-    <div class="title">
-      <p>Popular</p>
-    </div>
-    <div class="middlesection">
-      <div class="images">
-        <img src="pictures/download-removebg-preview (2).png" alt="">
-        <img src="pictures/download-removebg-preview (3).png" alt="">
-        <img src="pictures/download-removebg-preview (4).png" alt="">
-      </div>
+	<section class="section">
+		<div class="container">
+			<h2 class="section-title">Customer Reviews</h2>
+			<div class="grid">
+				<div class="quote">
+					<p>“Loved the fast delivery and smooth service. Great gadgets!”</p>
+					<span>- Anuj</span>
+				</div>
+				<div class="quote">
+					<p>“This site is my go-to for tech in Nepal. 100% recommended!”</p>
+					<span>- Samayam</span>
+				</div>
+				<div class="quote">
+					<p>“Awesome support and unbeatable prices on all items.”</p>
+					<span>- Dev</span>
+				</div>
+			</div>
+		</div>
+	</section>
 
-      <div class="title">
-        <p>Trending</p>
-      </div>
-      <div class="trending">
-        <img src="pictures/download-removebg-preview (1).png" alt="">
-        <img src="pictures/download-removebg-preview (3).png" alt="">
-        <img src="pictures/download-removebg-preview (4).png" alt="">
-      </div>
-    </div>
-
-    <footer>
-      <div class="menu" id="secondmenu">
-        <ul>
-          <li><a href="#">Home</a></li>
-          <li><a href="#">About us</a></li>
-          <li><a href="#">Products</a></li>
-          <li><a href="#">Contact us</a></li>
-          <li><a href="#">Join us</a></li>
-        </ul>
-      </div>
-      <div class="socials">
-        <p>Socials</p>
-        <div class="icons">
-          <a href="https://www.youtube.com/"><img src="https://img.icons8.com/?size=100&id=19318&format=png&color=000000" alt="youtube"></a>
-          <a href="https://www.instagram.com"><img src="https://img.icons8.com/?size=100&id=Xy10Jcu1L2Su&format=png&color=000000" alt="instagram"></a>
-          <a href="https://www.facebook.com"><img src="https://img.icons8.com/?size=100&id=uLWV5A9vXIPu&format=png&color=000000" alt="facebook"></a>
-        </div>
-      </div>
-    </footer>
-  </div>
+	<section class="section dark">
+		<div class="container">
+			<h2 class="section-title">Stay in Touch</h2>
+			<p>Subscribe for the latest deals, new arrivals, and more.</p>
+			<form class="newsletter">
+				<input type="email" placeholder="Your email address" required>
+				<button type="submit">Subscribe</button>
+			</form>
+		</div>
+	</section>
+	<jsp:include page="Footer.jsp" />
 </body>
 </html>

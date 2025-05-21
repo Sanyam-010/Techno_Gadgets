@@ -52,7 +52,12 @@ public class LoginController extends HttpServlet {
         session.setAttribute("firstname", user.getFirst_name());
         session.setAttribute("role", user.getRole());
 
-        //Redirect based on role
+        //Storeing username in cookie which will be valid for 7 days
+        Cookie userCookie = new Cookie("rememberUser", user.getUsername());
+        userCookie.setMaxAge(60 * 60 * 24 * 7); // 7 days
+        resp.addCookie(userCookie);
+
+        // Redirect based on role
         if ("admin".equalsIgnoreCase(user.getRole())) {
             req.getRequestDispatcher("/WEB-INF/pages/dashboard.jsp").forward(req, resp);
         } else {

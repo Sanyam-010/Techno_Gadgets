@@ -9,7 +9,7 @@
       <ul>
         <li><a href="${pageContext.request.contextPath}/home">Home</a></li>
         <li><a href="${pageContext.request.contextPath}/about">About Us</a></li>
-        <li><a href="${pageContext.request.contextPath}/products">Products</a></li>
+        <li><a href="${pageContext.request.contextPath}/ProductController">Products</a></li>
         <li><a href="${pageContext.request.contextPath}/contact">Contact Us</a></li>
         <li><a href="${pageContext.request.contextPath}/login">Login</a></li>
         <li><a href="${pageContext.request.contextPath}/register">Register</a></li>

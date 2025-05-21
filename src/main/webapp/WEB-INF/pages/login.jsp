@@ -1,15 +1,23 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%
+    String rememberedUser = "";//remember the user name for 7 days 
+    Cookie[] cookies = request.getCookies();
+    if (cookies != null) {
+        for (Cookie c : cookies) {
+            if ("rememberUser".equals(c.getName())) {
+                rememberedUser = c.getValue();
+                break;
+            }
+        }
+    }
+%>
 <!DOCTYPE html>
 <html>
-
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Login</title>
-
-  <!-- ✅ Keep your current CSS link -->
-  <link rel="stylesheet" href="${pageContext.request.contextPath}/css/login.css" />
-
+  <link rel="stylesheet" href="${pageContext.request.contextPath}/css/Login.css" />
   <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com">
@@ -21,17 +29,17 @@
     <div class="loginsection">
       <div class="logintitle">Login</div>
 
-      <!-- ✅ ADDED FORM with action and POST -->
+      
       <form class="logintable" action="login" method="post">
 
         <div class="email">
           Email address or username
-          <input name="username" placeholder="Email or Username " required>
+          <input name="username" value="<%= rememberedUser %>" placeholder="Email or Username" required>
         </div>
 
         <div class="email" id="pass">
           Password
-          <input name="password" type="password" placeholder="Enter your password " required>
+          <input name="password" type="password" placeholder="Enter your password" required>
         </div>
 
         <div class="loginbutton">
@@ -46,7 +54,7 @@
           Don't have an account? <p><a href="register">Register here.</a></p>
         </div>
 
-        <!-- ✅ Optional error message -->
+        <!--  not need but still error message for greater good-->
         <% String error = (String) request.getAttribute("error"); %>
         <% if (error != null) { %>
           <p class="error-msg" style="color: red;"><%= error %></p>
