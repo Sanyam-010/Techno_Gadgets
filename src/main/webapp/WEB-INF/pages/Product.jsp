@@ -5,8 +5,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Products</title>
-  <style>
+  <title>Products</title>  <style>
     body {
       margin: 0;
       font-family: 'Poppins', sans-serif;
